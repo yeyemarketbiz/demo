@@ -122,7 +122,12 @@
             <!-- Row 1 - Left Side -->
             <div class="space-y-8">
                 <!-- App 1 -->
-                <div class="relative group" @mouseenter="hoveredCard = 'marketplace1'" @mouseleave="hoveredCard = null">
+                <div
+                    class="relative group cursor-pointer"
+                    @mouseenter="hoveredCard = 'marketplace'"
+                    @mouseleave="hoveredCard = null"
+                    onclick="window.open('https://yeyemarketbiz.github.io/demo/template-2.html', '_blank')"
+                    >
                     <div class="absolute -top-3 -left-3 z-50 bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
                         Template 1
                     </div>
@@ -142,7 +147,12 @@
                 </div>
 
                 <!-- App -->
-                <div class="relative group" @mouseenter="hoveredCard = &#39;aisaas1&#39;" @mouseleave="hoveredCard = null">
+                <div
+                    class="relative group cursor-pointer"
+                    @mouseenter="hoveredCard = 'aisaas1'"
+                    @mouseleave="hoveredCard = null"
+                    onclick="window.open('https://yeyemarketbiz.github.io/demo/template-2.html', '_blank')"
+                    >
                     <div class="absolute -top-3 -left-3 z-50 bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-sm font-medium">
                         Template 2
                     </div>
