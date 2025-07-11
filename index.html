@@ -22,9 +22,10 @@
     <meta name="twitter:title" content="SmartWebGen - Scale Your Affiliate Revenue">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="images/contents/SmartWebGen.png">
-
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
     
     <link rel="icon" type="image/png" href="images/contents/favicon.ico">
     <style>
@@ -120,64 +121,41 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12" x-data="{ hoveredCard: null }">
             <!-- Row 1 - Left Side -->
             <div class="space-y-8">
-                <!-- Marketplace App 1 -->
-                <div class="relative group" @mouseenter="hoveredCard = &#39;marketplace1&#39;" @mouseleave="hoveredCard = null">
+                <!-- App 1 -->
+                <div class="relative group" @mouseenter="hoveredCard = 'marketplace1'" @mouseleave="hoveredCard = null">
                     <div class="absolute -top-3 -left-3 z-50 bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
                         Template 1
                     </div>
                     <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                        <div class="w-full h-64 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-4 overflow-hidden">
-                            <div class="w-full h-full bg-white rounded-xl p-4">
-                                <div class="flex items-center justify-between mb-4">
-                                    <div class="flex items-center space-x-2">
-                                        <div class="w-6 h-6 bg-blue-500 rounded"></div>
-                                        <div class="w-16 h-3 bg-gray-300 rounded"></div>
-                                    </div>
-                                    <div class="w-20 h-3 bg-gray-200 rounded"></div>
-                                </div>
-                                <div class="grid grid-cols-3 gap-3">
-                                    <div class="bg-blue-100 rounded-lg h-16 flex items-center justify-center">
-                                        <div class="w-8 h-8 bg-blue-300 rounded"></div>
-                                    </div>
-                                    <div class="bg-green-100 rounded-lg h-16 flex items-center justify-center">
-                                        <div class="w-8 h-8 bg-green-300 rounded"></div>
-                                    </div>
-                                    <div class="bg-purple-100 rounded-lg h-16 flex items-center justify-center">
-                                        <div class="w-8 h-8 bg-purple-300 rounded"></div>
-                                    </div>
-                                </div>
-                                <div class="mt-4">
-                                    <div class="w-full h-2 bg-gray-200 rounded mb-2"></div>
-                                    <div class="w-3/4 h-2 bg-gray-200 rounded mb-2"></div>
-                                    <div class="w-32 h-8 bg-blue-500 rounded-full"></div>
-                                </div>
+                        <div class="w-full h-64 rounded-xl overflow-hidden mb-4 relative">
+                            <div class="scale-[0.25] origin-top-left w-[1400px] h-[1000px] pointer-events-none">
+                                <iframe
+                                    src="https://yeyemarketbiz.github.io/demo/template-1.html"
+                                    width="1600"
+                                    height="1000"
+                                    frameborder="0"
+                                    class="w-full h-full"
+                                ></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- AI SaaS App -->
+                <!-- App -->
                 <div class="relative group" @mouseenter="hoveredCard = &#39;aisaas1&#39;" @mouseleave="hoveredCard = null">
                     <div class="absolute -top-3 -left-3 z-50 bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-sm font-medium">
                         Template 2
                     </div>
                     <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                        <div class="w-full h-64 bg-gradient-to-br from-purple-100 to-purple-50 rounded-xl flex items-center justify-center overflow-hidden">
-                            <div class="w-full h-full bg-white rounded-xl p-4">
-                                <div class="bg-gray-100 rounded-lg p-4 mb-3">
-                                    <div class="w-24 h-3 bg-gray-300 rounded mb-2"></div>
-                                    <div class="w-full h-2 bg-gray-200 rounded mb-1"></div>
-                                    <div class="w-3/4 h-2 bg-gray-200 rounded"></div>
-                                </div>
-                                <div class="flex space-x-2 mb-3">
-                                    <div class="w-16 h-6 bg-green-200 rounded-full text-xs flex items-center justify-center">✓</div>
-                                    <div class="w-20 h-6 bg-blue-200 rounded-full"></div>
-                                </div>
-                                <div class="space-y-2">
-                                    <div class="w-full h-2 bg-gray-200 rounded"></div>
-                                    <div class="w-5/6 h-2 bg-gray-200 rounded"></div>
-                                    <div class="w-2/3 h-2 bg-gray-200 rounded"></div>
-                                </div>
+                        <div class="w-full h-64 rounded-xl overflow-hidden mb-4 relative">
+                            <div class="scale-[0.25] origin-top-left w-[1400px] h-[1000px] pointer-events-none">
+                                <iframe
+                                    src="https://yeyemarketbiz.github.io/demo/template-2.html"
+                                    width="1600"
+                                    height="1000"
+                                    frameborder="0"
+                                    class="w-full h-full"
+                                ></iframe>
                             </div>
                         </div>
                     </div>
@@ -186,7 +164,7 @@
 
             <!-- Row 1 - Center -->
             <div class="flex flex-col justify-center space-y-8">
-                <!-- Marketplace Mobile App -->
+                <!-- App -->
                 <div class="relative group" @mouseenter="hoveredCard = &#39;marketplace2&#39;" @mouseleave="hoveredCard = null">
                     <div class="absolute -top-3 -left-3 z-50 bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
                         Template 3
