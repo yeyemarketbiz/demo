@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModHest - Modern Solutions for Modern Living</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#f5f5f5',
+                        accent: '#ff6b35'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md z-50 border-b border-gray-100" x-data="{ open: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-primary">ModHest</h1>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-900 hover:text-accent transition-colors font-medium">Home</a>
+                        <a href="#about" class="text-gray-600 hover:text-accent transition-colors font-medium">About</a>
+                        <a href="#services" class="text-gray-600 hover:text-accent transition-colors font-medium">Services</a>
+                        <a href="#products" class="text-gray-600 hover:text-accent transition-colors font-medium">Products</a>
+                        <a href="#testimonials" class="text-gray-600 hover:text-accent transition-colors font-medium">Reviews</a>
+                        <a href="#contact" class="text-gray-600 hover:text-accent transition-colors font-medium">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button @click="open = !open" class="text-gray-700 hover:text-accent">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div x-show="open" class="md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-gray-900 hover:text-accent">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-accent">About</a>
+                <a href="#services" class="block px-3 py-2 text-gray-600 hover:text-accent">Services</a>
+                <a href="#products" class="block px-3 py-2 text-gray-600 hover:text-accent">Products</a>
+                <a href="#testimonials" class="block px-3 py-2 text-gray-600 hover:text-accent">Reviews</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-600 hover:text-accent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <h2 class="text-5xl lg:text-6xl font-bold text-accent leading-tight">
+                        Modern Solutions for Modern Living
+                    </h2>
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        Discover premium quality products and services designed to elevate your lifestyle. From innovative designs to exceptional craftsmanship, we bring your vision to life.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+         
+                            Shop Now
+                        </button>
+                    </div>
+                </div>
+                <div class="relative md:w-[500px] mx-auto">
+                    <!-- Gambar utuh -->
+                    <img 
+                        src="https://images.unsplash.com/photo-1516131206008-dd041a9764fd?q=80&w=880&auto=format&fit=crop"
+                        alt="Full image"
+                        class="w-full h-auto rounded-xl"
+                    />
+
+                    <!-- Masking grid overlay -->
+                    <div class="absolute top-0 left-0 w-full h-full grid grid-cols-2 gap-4 pointer-events-none">
+                        <div class="space-y-4 w-full h-full">
+                        <div class="h-64 w-full outline outline-[10px] outline-white"></div>
+                        <div class="h-64 w-full outline outline-[10px] outline-white"></div>
+                        </div>
+                        <div class="space-y-4 w-full h-full">
+                        <div class="h-64 w-full outline outline-[10px] outline-white"></div>
+                        <div class="h-64 w-full outline outline-[10px] outline-white"></div>
+                        </div>
+                    </div>
+                    </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">About Our Company</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We are passionate about creating exceptional experiences through innovative design and quality craftsmanship. Our commitment to excellence drives everything we do.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-gray-700">
+                        ✅ 100% organic and locally sourced ingredients
+                    </p>
+                    <p class="text-gray-700">
+                        ✅ Nutritionist-approved meal plans
+                    </p>
+                    <p class="text-gray-700">
+                        ✅ Sustainable packaging and practices
+                    </p>
+                </div>
+                <div class="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
+                    <i class="fas fa-building text-6xl text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Why Choose Us</h2>
+                <p class="text-xl text-gray-600">Experience the difference with our premium approach to quality and service</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shipping-fast text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Fast Delivery</h3>
+                    <p class="text-gray-600">Quick and reliable delivery service to get your products to you as soon as possible.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Quality Guarantee</h3>
+                    <p class="text-gray-600">We stand behind our products with comprehensive warranties and quality assurance.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-headset text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">24/7 Support</h3>
+                    <p class="text-gray-600">Our dedicated support team is available around the clock to assist you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600">Comprehensive solutions tailored to meet your unique needs</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group cursor-pointer">
+                    <div class="bg-gray-200 rounded-lg h-48 mb-4 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
+                        <i class="fas fa-paint-brush text-4xl text-gray-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-2">Custom Design</h3>
+                    <p class="text-gray-600">Personalized design solutions that reflect your unique style and preferences.</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="bg-gray-200 rounded-lg h-48 mb-4 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
+                        <i class="fas fa-tools text-4xl text-gray-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-2">Installation</h3>
+                    <p class="text-gray-600">Professional installation services to ensure perfect setup and functionality.</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="bg-gray-200 rounded-lg h-48 mb-4 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
+                        <i class="fas fa-handshake text-4xl text-gray-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-2">Consultation</h3>
+                    <p class="text-gray-600">Expert advice and guidance to help you make the best decisions for your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Product Catalog</h2>
+                <p class="text-xl text-gray-600">Discover our carefully curated collection of premium products</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden group cursor-pointer">
+                    <div class="bg-gray-200 h-48 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
+                        <i class="fas fa-couch text-4xl text-gray-400"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-primary mb-2">Premium Seating</h3>
+                        <p class="text-gray-600 mb-3">Comfortable and stylish seating solutions</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-accent font-bold">From $299</span>
+                            <button class="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition-colors">View</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden group cursor-pointer">
+                    <div class="bg-gray-200 h-48 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
+                        <i class="fas fa-table text-4xl text-gray-400"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-primary mb-2">Dining Tables</h3>
+                        <p class="text-gray-600 mb-3">Elegant dining solutions for every space</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-accent font-bold">From $499</span>
+                            <button class="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition-colors">View</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden group cursor-pointer">
+                    <div class="bg-gray-200 h-48 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
+                        <i class="fas fa-bed text-4xl text-gray-400"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-primary mb-2">Bedroom Sets</h3>
+                        <p class="text-gray-600 mb-3">Complete bedroom solutions for rest</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-accent font-bold">From $799</span>
+                            <button class="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition-colors">View</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden group cursor-pointer">
+                    <div class="bg-gray-200 h-48 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
+                        <i class="fas fa-archive text-4xl text-gray-400"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-primary mb-2">Storage Solutions</h3>
+                        <p class="text-gray-600 mb-3">Organize your space with style</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-accent font-bold">From $199</span>
+                            <button class="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition-colors">View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                    View All Products
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">How It Works</h2>
+                <p class="text-xl text-gray-600">Simple steps to get exactly what you need</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Browse & Select</h3>
+                    <p class="text-gray-600">Explore our extensive catalog and choose products that match your needs and style preferences.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Customize</h3>
+                    <p class="text-gray-600">Work with our design team to customize your selection and create the perfect solution for your space.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Enjoy</h3>
+                    <p class="text-gray-600">Receive your order with professional installation and start enjoying your new space transformation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Real feedback from satisfied customers</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary">Sarah Johnson</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Absolutely love my new dining set! The quality is exceptional and the customer service was outstanding from start to finish."</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary">Michael Chen</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The custom design service exceeded my expectations. They perfectly captured my vision and delivered something even better than I imagined."</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary">Emily Rodriguez</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Fast delivery, professional installation, and beautiful products. I couldn't be happier with my complete home makeover!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Find answers to common questions about our products and services</p>
+            </div>
+            <div class="space-y-4" x-data="{ open: null }">
+                <div class="border border-gray-200 rounded-lg">
+                    <button @click="open = open === 1 ? null : 1" class="w-full text-left p-6 flex items-center justify-between">
+                        <span class="font-semibold text-primary">What is your return policy?</span>
+                        <i class="fas fa-chevron-down transform transition-transform" :class="open === 1 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open === 1" class="px-6 pb-6 text-gray-600">
+                        We offer a 30-day return policy on all products. Items must be in original condition with all packaging and documentation included.
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg">
+                    <button @click="open = open === 2 ? null : 2" class="w-full text-left p-6 flex items-center justify-between">
+                        <span class="font-semibold text-primary">Do you offer installation services?</span>
+                        <i class="fas fa-chevron-down transform transition-transform" :class="open === 2 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open === 2" class="px-6 pb-6 text-gray-600">
+                        Yes, we provide professional installation services for all our products. Our certified technicians ensure proper setup and functionality.
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg">
+                    <button @click="open = open === 3 ? null : 3" class="w-full text-left p-6 flex items-center justify-between">
+                        <span class="font-semibold text-primary">How long does delivery take?</span>
+                        <i class="fas fa-chevron-down transform transition-transform" :class="open === 3 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open === 3" class="px-6 pb-6 text-gray-600">
+                        Standard delivery takes 5-7 business days. Express delivery options are available for faster service. Custom orders may require additional time.
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg">
+                    <button @click="open = open === 4 ? null : 4" class="w-full text-left p-6 flex items-center justify-between">
+                        <span class="font-semibold text-primary">Do you offer custom design services?</span>
+                        <i class="fas fa-chevron-down transform transition-transform" :class="open === 4 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open === 4" class="px-6 pb-6 text-gray-600">
+                        Absolutely! Our design team works closely with you to create custom solutions that match your specific needs and style preferences.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-4">Ready to Transform Your Space?</h2>
+            <p class="text-xl mb-8 text-gray-200">Join thousands of satisfied customers who have elevated their living spaces with our premium products and services.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button class="bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+                    Get Started Today
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">ModHest</h3>
+                    <p class="text-gray-300 mb-4">Creating beautiful, functional spaces that inspire and elevate everyday living.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#products" class="text-gray-300 hover:text-white transition-colors">Products</a></li>
+                        <li><a href="#testimonials" class="text-gray-300 hover:text-white transition-colors">Reviews</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Custom Design</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Installation</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Consultation</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Maintenance</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-phone text-accent"></i>
+                            <span class="text-gray-300">+1 (555) 123-4567</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-envelope text-accent"></i>
+                            <span class="text-gray-300">info@modhest.com</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-accent"></i>
+                            <span class="text-gray-300">123 Design Street, Creative City, CC 12345</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2025 ModHest. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth Scrolling Script -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
