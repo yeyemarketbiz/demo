@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koperasi Sehat Makmur - Professional Cooperative & Health Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50" x-data="{ open: false }">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-hands-helping text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">Koperasi Sehat Makmur</h1>
+                        <p class="text-sm text-blue-600">Professional Services</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#beranda" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Home</a>
+                    <a href="#layanan" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Services</a>
+                    <a href="#tentang" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">About</a>
+                    <a href="#testimoni" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Testimonials</a>
+                    <a href="#kontak" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Contact</a>
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                        Get A Quote
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden">
+                    <button @click="open = !open" class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div x-show="open" x-transition class="lg:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
+                    <a href="#beranda" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="#layanan" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Services</a>
+                    <a href="#tentang" class="block px-3 py-2 text-gray-700 hover:text-blue-600">About</a>
+                    <a href="#testimoni" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Testimonials</a>
+                    <a href="#kontak" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Contact</a>
+                    <button class="w-full mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg">
+                        Get A Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="pt-20 min-h-screen bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-32 h-32 border-4 border-white rounded-lg transform rotate-12"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 border-4 border-white rounded-full"></div>
+            <div class="absolute bottom-40 left-1/4 w-20 h-20 border-4 border-white rounded-lg transform -rotate-12"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-white space-y-8" x-data x-init="$el.classList.add('animate-fade-in')">
+                    <div class="space-y-6">
+                        <div class="text-lg font-medium text-blue-200 uppercase tracking-wider">
+                            Solusi Keuangan & Kesehatan Terpercaya
+                        </div>
+                        <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
+                            Profesional <span class="text-blue-200">Koperasi</span> 
+                            & Layanan Kesehatan 
+                            <span class="text-yellow-400">Terpadu</span>
+                        </h1>
+                        <p class="text-xl text-blue-100 leading-relaxed max-w-lg">
+                            Bergabunglah dengan lebih dari 1000+ anggota yang telah merasakan manfaat program keuangan dan kesehatan terintegrasi kami sejak 2020.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition duration-300 transform hover:scale-105 shadow-xl">
+                            <i class="fas fa-handshake mr-2"></i>
+                            Mulai Konsultasi
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-700 transition duration-300">
+                            <i class="fas fa-play mr-2"></i>
+                            Lihat Portfolio
+                        </button>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 pt-8 border-t border-blue-400/30">
+                        <div>
+                            <div class="text-3xl font-bold text-yellow-400">1000+</div>
+                            <div class="text-sm text-blue-200">Anggota Aktif</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-yellow-400">5+</div>
+                            <div class="text-sm text-blue-200">Tahun Pengalaman</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-yellow-400">50+</div>
+                            <div class="text-sm text-blue-200">Program Layanan</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="relative">
+                    <div class="relative z-10">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=826&q=80" 
+                             alt="Professional Team" class="w-full rounded-lg shadow-2xl">
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-yellow-400 rounded-lg opacity-80 transform rotate-12"></div>
+                    <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-400 rounded-full opacity-60"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="layanan" class="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-20 w-20 h-20 border-2 border-white rounded-lg transform rotate-45"></div>
+            <div class="absolute bottom-20 right-10 w-32 h-32 border-2 border-white rounded-full"></div>
+            <div class="absolute top-1/2 left-10 w-16 h-16 border-2 border-white rounded-lg transform -rotate-12"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <div class="text-blue-200 font-medium uppercase tracking-wider mb-4">Apa Yang Kami Lakukan</div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">Layanan Profesional Terbaik</h2>
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto">Solusi keuangan dan kesehatan terintegrasi untuk anggota koperasi</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="group bg-white rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition duration-500 transform hover:-translate-y-2 card-hover">
+                    <div class="relative h-64">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
+                             alt="Manajemen Keuangan" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-blue-900/20"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Manajemen Keuangan</h3>
+                        <p class="text-gray-600 mb-6">Layanan simpan pinjam profesional dengan sistem manajemen risiko yang ketat dan bunga kompetitif untuk kesejahteraan anggota.</p>
+                        <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-medium">
+                            Baca Selengkapnya
+                        </button>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition duration-500 transform hover:-translate-y-2 card-hover">
+                    <div class="relative h-64">
+                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
+                             alt="Konsultasi Keuangan" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-blue-900/20"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Konsultasi Keuangan</h3>
+                        <p class="text-gray-600 mb-6">Tim ahli keuangan siap memberikan konsultasi profesional untuk perencanaan keuangan dan investasi yang optimal bagi masa depan.</p>
+                        <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-medium">
+                            Baca Selengkapnya
+                        </button>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition duration-500 transform hover:-translate-y-2 card-hover">
+                    <div class="relative h-64">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
+                             alt="Program Kesehatan" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-blue-900/20"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Program Kesehatan</h3>
+                        <p class="text-gray-600 mb-6">Paket kesehatan komprehensif meliputi pemeriksaan rutin, asuransi kesehatan, dan akses fasilitas kesehatan terbaik untuk keluarga.</p>
+                        <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-medium">
+                            Baca Selengkapnya
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Content Side -->
+                <div class="space-y-8">
+                    <div>
+                        <div class="text-blue-600 font-medium uppercase tracking-wider mb-4">Analisis Pasar</div>
+                        <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+                            Kami Melacak <span class="text-blue-600">Perkembangan</span> Pasar
+                        </h2>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                            Koperasi masa kini telah menciptakan terobosan efektif dalam mengoptimalkan layanan keuangan dan kesehatan yang inovatif.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            Dengan pengalaman lebih dari 5 tahun, kami terus berinovasi memberikan solusi terbaik untuk kesejahteraan anggota melalui program yang terstruktur dan berkelanjutan.
+                        </p>
+                    </div>
+
+                    <button class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300">
+                        Tentang Kami
+                    </button>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 gap-8 pt-8">
+                        <div class="text-center p-6 bg-gray-50 rounded-lg">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">2020</div>
+                            <div class="text-gray-600 font-medium">Tahun Berdiri</div>
+                        </div>
+                        <div class="text-center p-6 bg-gray-50 rounded-lg">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">AAA</div>
+                            <div class="text-gray-600 font-medium">Rating Koperasi</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Side -->
+                <div class="relative">
+                    <div class="relative z-10">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                             alt="Business Team Meeting" class="w-full rounded-lg shadow-xl">
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-6 -left-6 w-32 h-32 border-4 border-blue-200 rounded-lg transform -rotate-6"></div>
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-blue-600 rounded-full opacity-20"></div>
+                </div>
+            </div>
+
+            <!-- Additional Info Section -->
+            <div class="mt-20 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-12 text-white">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="text-blue-200 font-medium uppercase tracking-wider mb-4">Penelitian</div>
+                        <h3 class="text-3xl font-bold mb-6">
+                            Meningkatkan Kemakmuran Dengan Pemikiran Positif
+                        </h3>
+                        <button class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300 flex items-center">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            Jelajahi Portfolio Kami
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
+                             alt="Business Success" class="w-full rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimoni" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="text-blue-600 font-medium uppercase tracking-wider mb-4">Testimoni</div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Feedback Klien Kami</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Pengalaman dan kepuasan anggota adalah prioritas utama dalam setiap layanan yang kami berikan</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8" x-data="testimonials()">
+                <template x-for="testimonial in testimonials" :key="testimonial.id">
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-l-4 border-blue-600 card-hover">
+                        <div class="mb-6">
+                            <p class="text-gray-600 italic leading-relaxed" x-text="testimonial.message"></p>
+                        </div>
+                        <div class="flex items-center">
+                            <img :src="testimonial.avatar" :alt="testimonial.name" class="w-14 h-14 rounded-full mr-4 object-cover">
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-lg" x-text="testimonial.name"></h4>
+                                <p class="text-blue-600 font-medium" x-text="testimonial.position"></p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="text-blue-600 font-medium uppercase tracking-wider mb-4">Hubungi Kami</div>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Mari Berkonsultasi</h2>
+                <p class="text-xl text-gray-600">Tim profesional kami siap membantu Anda 24/7</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Informasi Kontak</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg">Alamat Kantor</h4>
+                                    <p class="text-gray-600">Jl. Kesehatan No. 123, Jakarta Selatan 12345</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg">Telepon</h4>
+                                    <p class="text-gray-600">+62 21 1234 5678</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 text-lg">Email</h4>
+                                    <p class="text-gray-600">info@koperasisehatmakmur.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Kirim Pesan</h3>
+                    <form class="space-y-6" x-data="contactForm()" @submit.prevent="submitForm">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                                <input type="text" x-model="form.name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition duration-300">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" x-model="form.email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition duration-300">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Subjek</label>
+                            <input type="text" x-model="form.subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition duration-300">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Pesan</label>
+                            <textarea rows="5" x-model="form.message" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition duration-300 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-hands-helping text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Koperasi Sehat Makmur</h3>
+                            <p class="text-sm text-gray-400">Professional Services</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Membangun komunitas yang sehat dan makmur melalui program koperasi yang inovatif dan terpercaya.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Link Cepat</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#beranda" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#layanan" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#tentang" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
+                        <li><a href="#testimoni" class="text-gray-400 hover:text-white transition duration-300">Testimonials</a></li>
+                        <li><a href="#kontak" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Layanan</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Manajemen Keuangan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Konsultasi Keuangan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Program Kesehatan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Asuransi Kesehatan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Simpan Pinjam</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Kontak</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                            <p class="text-gray-400">Jl. Kesehatan No. 123<br>Jakarta Selatan 12345</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-blue-400"></i>
+                            <p class="text-gray-400">+62 21 1234 5678</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-blue-400"></i>
+                            <p class="text-gray-400">info@koperasisehatmakmur.com</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-clock text-blue-400"></i>
+                            <p class="text-gray-400">Senin - Jumat: 08.00 - 17.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">
+                        &copy; 2024 Koperasi Sehat Makmur. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button x-data="scrollTop()" x-show="showButton" @click="scrollToTop" 
+            class="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-110 z-50 hover:bg-blue-700">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Testimonials Component
+        function testimonials() {
+            return {
+                testimonials: [
+                    {
+                        id: 1,
+                        name: 'Miranda H. Halim',
+                        position: 'Founder, Miranda Co.',
+                        avatar: 'https://images.unsplash.com/photo-1494790108755-2616c5e2-67d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+                        message: 'Program keuangan koperasi sangat membantu mengembangkan bisnis kami. Tim profesional dan layanan yang sangat memuaskan dalam setiap konsultasi keuangan.'
+                    },
+                    {
+                        id: 2,
+                        name: 'Ahmad Pratama',
+                        position: 'CEO, Tech Solutions',
+                        avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                        message: 'Layanan kesehatan terintegrasi dengan program keuangan membuat perencanaan masa depan keluarga menjadi lebih terstruktur dan aman.'
+                    },
+                    {
+                        id: 3,
+                        name: 'Sarah Dewi',
+                        position: 'Director, Creative Agency',
+                        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+                        message: 'Koperasi ini memberikan solusi komprehensif mulai dari simpan pinjam hingga asuransi kesehatan. Sangat rekomendasi untuk para profesional.'
+                    }
+                ]
+            }
+        }
+
+        // Contact Form Component
+        function contactForm() {
+            return {
+                form: {
+                    name: '',
+                    email: '',
+                    subject: '',
+                    message: ''
+                },
+                submitForm() {
+                    // Form validation
+                    if (!this.form.name || !this.form.email || !this.form.subject || !this.form.message) {
+                        alert('Mohon lengkapi semua field');
+                        return;
+                    }
+                    
+                    // Simple email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(this.form.email)) {
+                        alert('Email tidak valid');
+                        return;
+                    }
+
+                    // Simulate form submission
+                    alert('Pesan berhasil dikirim! Kami akan segera menghubungi Anda.');
+                    
+                    // Reset form
+                    this.form = {
+                        name: '',
+                        email: '',
+                        subject: '',
+                        message: ''
+                    };
+                }
+            }
+        }
+
+        // Scroll to Top Component
+        function scrollTop() {
+            return {
+                showButton: false,
+                init() {
+                    window.addEventListener('scroll', () => {
+                        this.showButton = window.pageYOffset > 300;
+                    });
+                },
+                scrollToTop() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+
+        // Smooth Scroll for Navigation Links
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add Animation Classes on Scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

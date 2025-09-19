@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finandox - Koperasi Sehat Makmur | Solusi Finansial Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        .orange-gradient {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        }
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(255, 107, 53, 0.2);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .number-circle {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            background-size: 200% 200%;
+            animation: gradient-shift 3s ease infinite;
+        }
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff6b35',
+                        secondary: '#f7931e',
+                        dark: '#1a1a1a',
+                        'dark-light': '#2d2d2d'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="bg-dark/95 backdrop-blur-md shadow-2xl fixed w-full top-0 z-50" 
+         x-data="{ open: false, scrolled: false }" 
+         x-init="window.addEventListener('scroll', () => scrolled = window.pageYOffset > 50)"
+         :class="scrolled ? 'bg-dark' : 'bg-dark/95'">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 orange-gradient rounded-xl flex items-center justify-center shadow-lg">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-white">Finandox</h1>
+                        <p class="text-xs text-orange-400">Financial Cooperative</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#beranda" class="text-gray-300 hover:text-primary transition duration-300 font-medium relative group">
+                        Beranda
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#layanan" class="text-gray-300 hover:text-primary transition duration-300 font-medium relative group">
+                        Layanan
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#tentang" class="text-gray-300 hover:text-primary transition duration-300 font-medium relative group">
+                        Tentang
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#portofolio" class="text-gray-300 hover:text-primary transition duration-300 font-medium relative group">
+                        Portofolio
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#kontak" class="text-gray-300 hover:text-primary transition duration-300 font-medium relative group">
+                        Kontak
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <button class="orange-gradient text-white px-6 py-3 rounded-lg font-semibold hover:shadow-xl transition duration-300 transform hover:scale-105">
+                        Konsultasi Gratis
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden">
+                    <button @click="open = !open" class="text-gray-300 hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div x-show="open" x-transition class="lg:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-dark border-t border-gray-700">
+                    <a href="#beranda" class="block px-3 py-2 text-gray-300 hover:text-primary">Beranda</a>
+                    <a href="#layanan" class="block px-3 py-2 text-gray-300 hover:text-primary">Layanan</a>
+                    <a href="#tentang" class="block px-3 py-2 text-gray-300 hover:text-primary">Tentang</a>
+                    <a href="#portofolio" class="block px-3 py-2 text-gray-300 hover:text-primary">Portofolio</a>
+                    <a href="#kontak" class="block px-3 py-2 text-gray-300 hover:text-primary">Kontak</a>
+                    <button class="w-full mt-4 orange-gradient text-white px-6 py-3 rounded-lg font-semibold">
+                        Konsultasi Gratis
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="pt-20 min-h-screen gradient-bg relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="space-y-8">
+                    <div class="space-y-6">
+                        <div class="inline-block">
+                            <span class="bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-medium border border-primary/30">
+                                <i class="fas fa-star mr-2"></i>
+                                Koperasi Terpercaya #1 di Indonesia
+                            </span>
+                        </div>
+                        <h1 class="text-5xl lg:text-7xl font-bold leading-tight text-shadow">
+                            Solusi
+                            <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                                Finansial
+                            </span>
+                            Modern
+                        </h1>
+                        <p class="text-xl text-gray-300 leading-relaxed max-w-lg">
+                            Wujudkan impian finansial Anda bersama Finandox. Koperasi modern dengan teknologi terdepan dan layanan terpercaya.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="orange-gradient text-white px-8 py-4 rounded-lg font-semibold hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Mulai Sekarang
+                        </button>
+                        <button class="glass-effect text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition duration-300">
+                            <i class="fas fa-play mr-2"></i>
+                            Tonton Video
+                        </button>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-4 gap-6 pt-8 border-t border-white/10">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">90+</div>
+                            <div class="text-xs text-gray-400 mt-1">Satisfaction</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">71+</div>
+                            <div class="text-xs text-gray-400 mt-1">Clients</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">33+</div>
+                            <div class="text-xs text-gray-400 mt-1">Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">42+</div>
+                            <div class="text-xs text-gray-400 mt-1">Awards</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual -->
+                <div class="relative">
+                    <div class="glass-effect rounded-3xl p-8 relative z-10">
+                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" 
+                             alt="Financial Team" class="w-full rounded-2xl shadow-2xl">
+                    </div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-6 -right-6 number-circle w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-xl floating-icon">
+                        95%
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 glass-effect w-32 h-20 rounded-xl flex flex-col items-center justify-center floating-icon">
+                        <div class="text-2xl font-bold text-primary">5.0</div>
+                        <div class="text-xs text-gray-400">Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="layanan" class="py-20 bg-dark-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-primary font-semibold">Layanan Unggulan</span>
+                <h2 class="text-4xl font-bold mt-2 mb-4">Apa yang Kami Lakukan</h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                    Memberikan solusi finansial komprehensif untuk membantu Anda mencapai tujuan keuangan
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-effect p-8 rounded-2xl card-hover group">
+                    <div class="w-16 h-16 orange-gradient rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-chart-bar text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Business Analysis</h3>
+                    <p class="text-gray-400 mb-6">Analisis mendalam terhadap kondisi keuangan bisnis dan strategi pengembangan yang tepat.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-secondary transition duration-300">
+                        Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-effect p-8 rounded-2xl card-hover group">
+                    <div class="w-16 h-16 orange-gradient rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-hand-holding-usd text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Investment</h3>
+                    <p class="text-gray-400 mb-6">Program investasi dan simpan pinjam dengan return optimal dan risiko terukur.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-secondary transition duration-300">
+                        Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-effect p-8 rounded-2xl card-hover group">
+                    <div class="w-16 h-16 orange-gradient rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Insurance</h3>
+                    <p class="text-gray-400 mb-6">Perlindungan finansial komprehensif untuk masa depan yang lebih aman.</p>
+                    <a href="#" class="text-primary font-semibold hover:text-secondary transition duration-300">
+                        Selengkapnya <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tentang" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Content -->
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-primary font-semibold">Tentang Finandox</span>
+                        <h2 class="text-4xl font-bold mt-2 mb-6">Kami Bekerja Dengan Anda untuk Mencapai Tujuan</h2>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            Dengan pengalaman lebih dari 5 tahun di industri koperasi, Finandox hadir sebagai mitra terpercaya dalam perjalanan finansial Anda. Kami mengombinasikan nilai-nilai koperasi tradisional dengan teknologi modern.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass-effect p-6 rounded-xl text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">1000+</div>
+                            <div class="text-gray-400 text-sm">Anggota Aktif</div>
+                        </div>
+                        <div class="glass-effect p-6 rounded-xl text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">95%</div>
+                            <div class="text-gray-400 text-sm">Kepuasan Klien</div>
+                        </div>
+                    </div>
+
+                    <button class="orange-gradient text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition duration-300 transform hover:scale-105">
+                        <i class="fas fa-users mr-2"></i>
+                        Gabung Sekarang
+                    </button>
+                </div>
+
+                <!-- Image -->
+                <div class="relative">
+                    <div class="glass-effect rounded-3xl p-6">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" 
+                             alt="Team Meeting" class="w-full rounded-2xl shadow-xl">
+                    </div>
+                    
+                    <!-- Stats Card -->
+                    <div class="absolute -bottom-6 -left-6 glass-effect rounded-2xl p-6 w-48">
+                        <div class="flex items-center space-x-4">
+                            <div class="number-circle w-12 h-12 rounded-full flex items-center justify-center text-white font-bold">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <div class="text-lg font-bold">Best Service</div>
+                                <div class="text-sm text-gray-400">Award 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio/Work Section -->
+    <section id="portofolio" class="py-20 bg-dark-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-primary font-semibold">Portofolio Kami</span>
+                <h2 class="text-4xl font-bold mt-2 mb-4">Karya Terbaru</h2>
+                <div class="flex justify-center space-x-8 mt-8">
+                    <button class="text-primary font-semibold border-b-2 border-primary pb-2">Semua</button>
+                    <button class="text-gray-400 hover:text-primary transition duration-300">Investasi</button>
+                    <button class="text-gray-400 hover:text-primary transition duration-300">Analisis</button>
+                    <button class="text-gray-400 hover:text-primary transition duration-300">Konsultasi</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-effect rounded-2xl overflow-hidden card-hover">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">Financial Dashboard</h3>
+                        <p class="text-gray-400 text-sm">Analisis & Konsultasi</p>
+                    </div>
+                </div>
+                
+                <div class="glass-effect rounded-2xl overflow-hidden card-hover">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">Investment Portfolio</h3>
+                        <p class="text-gray-400 text-sm">Investment Planning</p>
+                    </div>
+                </div>
+                
+                <div class="glass-effect rounded-2xl overflow-hidden card-hover">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">Business Analysis</h3>
+                        <p class="text-gray-400 text-sm">Strategic Planning</p>
+                    </div>
+                </div>
+                
+                <div class="glass-effect rounded-2xl overflow-hidden card-hover">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Project 4" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold mb-2">Financial Consulting</h3>
+                        <p class="text-gray-400 text-sm">Personal Finance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-primary font-semibold">Testimoni</span>
+                <h2 class="text-4xl font-bold mt-2 mb-4">Insight & Overview Terbaru</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8" x-data="testimonials()">
+                <template x-for="testimonial in testimonials" :key="testimonial.id">
+                    <div class="glass-effect p-8 rounded-2xl card-hover">
+                        <div class="flex items-center mb-6">
+                            <img :src="testimonial.avatar" :alt="testimonial.name" class="w-16 h-16 rounded-full mr-4 object-cover border-2 border-primary">
+                            <div>
+                                <h4 class="font-bold" x-text="testimonial.name"></h4>
+                                <p class="text-sm text-primary" x-text="testimonial.position"></p>
+                                <div class="flex text-yellow-500 text-sm mt-1">
+                                    <template x-for="i in 5">
+                                        <i class="fas fa-star"></i>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 italic leading-relaxed" x-text="testimonial.message"></p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="py-20 bg-dark-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-primary font-semibold">Hubungi Kami</span>
+                        <h2 class="text-4xl font-bold mt-2 mb-6">Mari Berkonsultasi</h2>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            Tim ahli kami siap membantu Anda merencanakan strategi finansial yang tepat. Hubungi kami untuk konsultasi gratis.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-14 h-14 orange-gradient rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Alamat Kantor</h4>
+                                <p class="text-gray-400">Jl. Finandox Plaza No. 88<br>Jakarta Selatan 12950</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-14 h-14 orange-gradient rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Telepon</h4>
+                                <p class="text-gray-400">+62 21 5588 9900</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-14 h-14 orange-gradient rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Email</h4>
+                                <p class="text-gray-400">hello@finandox.co.id</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="glass-effect p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6">Kirim Pesan</h3>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <input type="text" placeholder="Nama Lengkap" 
+                                       class="w-full px-4 py-4 bg-dark border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-300 text-white placeholder-gray-400">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Email Address" 
+                                       class="w-full px-4 py-4 bg-dark border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-300 text-white placeholder-gray-400">
+                            </div>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Subjek" 
+                                   class="w-full px-4 py-4 bg-dark border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-300 text-white placeholder-gray-400">
+                        </div>
+                        <div>
+                            <textarea rows="5" placeholder="Pesan Anda..." 
+                                      class="w-full px-4 py-4 bg-dark border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-300 text-white placeholder-gray-400 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full orange-gradient text-white py-4 rounded-lg font-semibold hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-16 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 orange-gradient rounded-xl flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Finandox</h3>
+                            <p class="text-sm text-primary">Financial Cooperative</p>
+                        </div>
+                    </div>
+                    
